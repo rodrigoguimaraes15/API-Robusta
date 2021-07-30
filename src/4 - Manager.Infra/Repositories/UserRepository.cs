@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Manager.Domain.Entities;
 using Manager.Infra.Interfaces;
 using Manager.Infra.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Manager.Infra.Repositories
 {
@@ -42,7 +43,7 @@ namespace Manager.Infra.Repositories
             return allUsers; 
         }
 
-        public async Task<List<T>> SearchByName(string name)
+        public async Task<List<User>> SearchByName(string name)
         {
             var allUsers = await _context.Users
                                          .Where
